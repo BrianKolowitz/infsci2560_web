@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class PageHitCounterServlet extends HttpServlet{
     
-  private int hitCount; 
+  private static int hitCount; 
                
   public void init() 
   { 
@@ -51,6 +51,7 @@ public class PageHitCounterServlet extends HttpServlet{
   }
   public void destroy() 
   { 
+      System.out.println("destroy");
       // This is optional step but if you like you
       // can write hitCount value in your database.
   } 

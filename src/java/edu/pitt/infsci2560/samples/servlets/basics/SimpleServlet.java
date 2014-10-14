@@ -32,7 +32,8 @@ public class SimpleServlet extends HttpServlet {
      * @throws ServletException
      * @throws IOException
      */
-    public void processRequest(HttpServletRequest req, HttpServletResponse rsp) throws ServletException, IOException {
+    public void processRequest(HttpServletRequest req, 
+            HttpServletResponse rsp) throws ServletException, IOException {
         String ms[] = {"one", "two", "three", "four", "five"};
         rsp.setContentType("text/html");
         PrintWriter out = rsp.getWriter();

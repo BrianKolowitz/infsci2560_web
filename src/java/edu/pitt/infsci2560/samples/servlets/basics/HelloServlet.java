@@ -36,6 +36,7 @@ public class HelloServlet extends HttpServlet {
       // Actual logic goes here.
       PrintWriter out = response.getWriter();
       out.println("<h1>" + message + "</h1>");
+      out.println("<h2>This is a simple servlet</h2>");
   }
   
   public void destroy()

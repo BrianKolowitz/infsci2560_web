@@ -48,6 +48,10 @@
         <servlet-name>SendEmailServlet</servlet-name>
         <servlet-class>edu.pitt.infsci2560.samples.servlets.basics.SendEmailServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TestServlet</servlet-name>
+        <servlet-class>edu.pitt.infsci2560.samples.servlets.basics.TestServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HelloServlet</servlet-name>
         <url-pattern>/Hello</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>SendEmailServlet</servlet-name>
         <url-pattern>/SendEmail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TestServlet</servlet-name>
+        <url-pattern>/samples/Test</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
