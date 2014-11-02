@@ -52,6 +52,26 @@
         <servlet-name>TestServlet</servlet-name>
         <servlet-class>edu.pitt.infsci2560.samples.servlets.basics.TestServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>loadConfig</servlet-name>
+        <servlet-class>edu.pitt.infsci2560.samples.servlets.basics.ServletConfig</servlet-class>
+        <init-param>
+            <param-name>adminEmail</param-name>
+            <param-value>admin@pitt.edu</param-value>
+        </init-param>
+        <init-param>
+            <param-name>mainEmail</param-name>
+            <param-value>user@pitt.edu</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>ContextConfig</servlet-name>
+        <servlet-class>edu.pitt.infsci2560.samples.servlets.basics.ContextConfig</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Dog</servlet-name>
+        <servlet-class>edu.pitt.infsci2560.samples.servlets.Dog</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HelloServlet</servlet-name>
         <url-pattern>/Hello</url-pattern>
@@ -104,9 +124,30 @@
         <servlet-name>TestServlet</servlet-name>
         <url-pattern>/samples/Test</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>loadConfig</servlet-name>
+        <url-pattern>/loadConfig</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContextConfig</servlet-name>
+        <url-pattern>/ContextConfig</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Dog</servlet-name>
+        <url-pattern>/Dog</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <context-param>
+        <param-name>mainEmail</param-name>
+        <param-value>brian@pitt.edu</param-value>
+￼￼￼</context-param>
+    <context-param>
+        <param-name>adminEmail</param-name>
+        <param-value>john@pitt.edu</param-value>
+attributes and listeners
+￼￼￼</context-param>
 </web-app>
