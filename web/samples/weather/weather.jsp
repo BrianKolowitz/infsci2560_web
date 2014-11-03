@@ -15,17 +15,20 @@
         <h1>Current Weather</h1>
         <ul>
             <li>
+                City Id: ${requestScope.current.city.id}, Name: ${requestScope.current.city.name}
                 <ul>
-                    <li>City Id:<c:out value="${requestScope.current.getCity().getId()}"></c:out></li>
-                    <li>City Name:<c:out value="${requestScope.current.city.name}"></c:out></li>
-                    <li>
-                        <ul>
-                            <li>Longitude:<c:out value="${requestScope.current.city.coord.lon}"></c:out></li>
-                            <li>Latitude<c:out value="${requestScope.current.city.coord.lat}"></c:out></li>
-                        </ul>
-                    </li>
+                    <li>Coord Long: ${requestScope.current.city.coord.lon}, Lat: ${requestScope.current.city.coord.lat}</li>
+                    <li>Country: </li>
+                    <li>Sun Rise: ${requestScope.current.city.sun.rise}, Set: ${requestScope.current.city.sun.set}</li>
+                </ul>
+            </li>
+            <li>Temperature ${requestScope.current.temperature.value} ${requestScope.current.temperature.unit}
+                <ul>
+                    <li>Min ${requestScope.current.temperature.value} ${requestScope.current.temperature.unit}</li>
+                    <li>Max ${requestScope.current.temperature.value} ${requestScope.current.temperature.unit}</li>
                 </ul>
             </li>
         </ul>
+                <div>Last Updated at ${requestScope.current.lastupdate.value}</div>
     </body>
 </html>

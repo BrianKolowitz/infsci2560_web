@@ -5,9 +5,10 @@
  */
 package edu.pitt.infsci2560.samples.servlets.weather;
 
-import edu.pitt.infsci2560.samples.servlets.weather.Current.City;
-import edu.pitt.infsci2560.samples.servlets.weather.Current.City.Coord;
-import edu.pitt.infsci2560.samples.servlets.weather.Current.City.Sun;
+import edu.pitt.infsci2560.samples.beans.weather.sax.Current;
+import edu.pitt.infsci2560.samples.beans.weather.sax.Current.City;
+import edu.pitt.infsci2560.samples.beans.weather.sax.Current.City.Coord;
+import edu.pitt.infsci2560.samples.beans.weather.sax.Current.City.Sun;
 import java.util.ArrayList;
 import java.util.List;
 import org.xml.sax.Attributes;

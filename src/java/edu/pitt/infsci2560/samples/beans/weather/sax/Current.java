@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.pitt.infsci2560.samples.servlets.weather;
+package edu.pitt.infsci2560.samples.beans.weather.sax;
 /*
 <current>
     <city id="2053426" name="Xidianzi">
@@ -41,6 +41,10 @@ public class Current {
     private Visibility visibility;
     private Precipitation precipitation;
     private Weather weather;
+    
+    public Current() {
+        
+    }
 
     /**
      * @return the city
