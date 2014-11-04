@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.pitt.infsci2560.samples.beans.weather.jaxb;
+package edu.pitt.infsci2560.samples.beans.weather.models;
 
 import javax.xml.bind.annotation.XmlAttribute;
 
@@ -11,12 +11,12 @@ import javax.xml.bind.annotation.XmlAttribute;
  *
  * @author kolowitzbj
  */
-public class Pressure {
+ public class Clouds {
 
         private String value;
-        private String unit;
+        private String name;
         
-        public Pressure() {
+        public Clouds() { 
             
         }
 
@@ -36,17 +36,17 @@ public class Pressure {
     }
 
     /**
-     * @return the unit
+     * @return the name
      */
-    public String getUnit() {
-        return unit;
+    public String getName() {
+        return name;
     }
 
     /**
-     * @param unit the unit to set
+     * @param name the name to set
      */
     @XmlAttribute
-    public void setUnit(String unit) {
-        this.unit = unit;
+    public void setName(String name) {
+        this.name = name;
     }
     }

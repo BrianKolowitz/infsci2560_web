@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.pitt.infsci2560.samples.beans.weather.jaxb;
+package edu.pitt.infsci2560.samples.beans.weather.models;
 
 import javax.xml.bind.annotation.XmlElement;
 
@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlElement;
     /**
      * @param speed the speed to set
      */
-    @XmlElement
+    
     public void setSpeed(Speed speed) {
         this.speed = speed;
     }
@@ -44,7 +44,7 @@ import javax.xml.bind.annotation.XmlElement;
     /**
      * @param direction the direction to set
      */
-    @XmlElement
+    
     public void setDirection(Direction direction) {
         this.direction = direction;
     }

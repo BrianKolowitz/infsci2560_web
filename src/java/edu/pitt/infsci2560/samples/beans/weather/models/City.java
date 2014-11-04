@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.pitt.infsci2560.samples.beans.weather.jaxb;
+package edu.pitt.infsci2560.samples.beans.weather.models;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -63,7 +63,7 @@ public class City {
         /**
          * @param coord the coord to set
          */
-        @XmlElement
+        
         public void setCoord(Coord coord) {
             this.coord = coord;
         }
@@ -78,7 +78,7 @@ public class City {
         /**
          * @param country the country to set
          */
-        @XmlElement
+        
         public void setCountry(String country) {
             this.country = country;
         }
@@ -93,7 +93,7 @@ public class City {
         /**
          * @param sun the sun to set
          */
-        @XmlElement
+        
         public void setSun(Sun sun) {
             this.sun = sun;
         }

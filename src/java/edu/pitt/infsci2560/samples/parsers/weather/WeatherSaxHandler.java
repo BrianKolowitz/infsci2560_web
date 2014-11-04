@@ -3,12 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.pitt.infsci2560.samples.servlets.weather;
+package edu.pitt.infsci2560.samples.parsers.weather;
 
-import edu.pitt.infsci2560.samples.beans.weather.sax.Current;
-import edu.pitt.infsci2560.samples.beans.weather.sax.Current.City;
-import edu.pitt.infsci2560.samples.beans.weather.sax.Current.City.Coord;
-import edu.pitt.infsci2560.samples.beans.weather.sax.Current.City.Sun;
+import edu.pitt.infsci2560.samples.beans.weather.models.*;
 import java.util.ArrayList;
 import java.util.List;
 import org.xml.sax.Attributes;
@@ -40,7 +37,7 @@ import org.xml.sax.helpers.DefaultHandler;
  *
  * @author kolowitzbj
  */
-public class WeatherHandler extends DefaultHandler {
+public class WeatherSaxHandler extends DefaultHandler {
     private List<Current> curList = null;
     private Current cur = null;
     private boolean isCountry = false;
@@ -56,7 +53,7 @@ public class WeatherHandler extends DefaultHandler {
         } else if (qName.equalsIgnoreCase("city") ) {
             City city = cur.getCity();
             if ( cur.getCity() == null ) {
-                city = cur.new City();
+                city = new City();
                 cur.setCity(city);
             }
             city.setId(attributes.getValue("id"));
@@ -64,18 +61,18 @@ public class WeatherHandler extends DefaultHandler {
         } else if (qName.equalsIgnoreCase("coord") ) {
             Coord coord = cur.getCity().getCoord();
             if ( coord == null ) {
-                coord = cur.getCity().new Coord();
+                coord = new Coord();
                 cur.getCity().setCoord(coord);
             }
             coord.setLon(attributes.getValue("lon"));
-            coord.setLat(attributes.getValue("at"));
+            coord.setLat(attributes.getValue("lat"));
             
         } else if ( qName.equalsIgnoreCase("country") ) {
             isCountry = true;
         } else if ( qName.equalsIgnoreCase("sun")) {
             Sun sun = cur.getCity().getSun();
             if ( sun == null ) {
-                sun = cur.getCity().new Sun();
+                sun = new Sun();
                 cur.getCity().setSun(sun);
             }
             sun.setRise(attributes.getValue("rise"));

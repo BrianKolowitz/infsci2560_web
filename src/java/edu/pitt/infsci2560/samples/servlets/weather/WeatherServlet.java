@@ -5,6 +5,11 @@
  */
 package edu.pitt.infsci2560.samples.servlets.weather;
 
+import edu.pitt.infsci2560.samples.beans.weather.models.Current;
+import edu.pitt.infsci2560.samples.parsers.weather.IWeatherParser;
+import edu.pitt.infsci2560.samples.parsers.weather.WeatherSaxParser;
+import edu.pitt.infsci2560.samples.parsers.weather.WeatherJaxbParser;
+import edu.pitt.infsci2560.samples.parsers.weather.WeatherDomParser;
 import java.io.IOException;
 import java.io.StringReader;
 
@@ -58,59 +63,40 @@ public class WeatherServlet extends HttpServlet {
 
         Client client;
         client = ClientBuilder.newClient();
-        String url = String.format("http://api.openweathermap.org/data/2.5/weather?lat=%s&lon=%s&mode=xml",
+        String url = String.format("http://api.openweathermap.org/data/2.5/weather?lat=%s&lon=%s&mode=xml&units=%s",
                 latitude,
-                longitude);
+                longitude,
+                "celsius".compareToIgnoreCase(unitType) == 0 ? "metric" : "imperial");
 
         String xml = client.target(url)
             .request(MediaType.APPLICATION_XML)
             .get(String.class);
-
-        if ( false ) {
-            
-            try {
-                edu.pitt.infsci2560.samples.beans.weather.sax.Current cur = parseXml(xml);          
-                
-                request.setAttribute("current", cur);
-                RequestDispatcher view = request.getRequestDispatcher("samples/weather/weather.jsp");
-                view.forward(request, response);
-            } catch (Exception ex) {
-                Logger.getLogger(WeatherServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else { 
-            
-            try {
-                edu.pitt.infsci2560.samples.beans.weather.jaxb.Current cur = 
-                    (edu.pitt.infsci2560.samples.beans.weather.jaxb.Current)JAXBContext
-                        .newInstance(edu.pitt.infsci2560.samples.beans.weather.jaxb.Current.class)
-                        .createUnmarshaller()
-                        .unmarshal(new StringReader(xml)); 
-                
-                request.setAttribute("current", cur);
-                RequestDispatcher view = request.getRequestDispatcher("samples/weather/weather.jsp");
-                view.forward(request, response);
-            } catch (JAXBException ex) {
-                Logger.getLogger(WeatherServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        
+        
+        final String SAX_PARSER = "sax";
+        final String JAXB_PARSER = "jaxb";
+        final String DOM_PARSER = "dom";
+        
+        String currentParser = DOM_PARSER; // todo : inject parser using JNDI
+        
+        IWeatherParser parser = null;
+        if ( currentParser.compareToIgnoreCase(SAX_PARSER) == 0 ) {
+            parser = new WeatherSaxParser();
+        } else if (currentParser.compareToIgnoreCase(JAXB_PARSER) == 0 ) { 
+            parser = new WeatherJaxbParser();
+        } else if ( currentParser.compareToIgnoreCase(DOM_PARSER) == 0 ) {
+            parser = new WeatherDomParser();
         }
+        
+        if ( parser != null ) {
+            Current cur = parser.parseXml(xml);
+            request.setAttribute("current", cur);
+        }
+        
+        RequestDispatcher view = request.getRequestDispatcher("samples/weather/weather.jsp");
+        view.forward(request, response);
     }
     
-    protected edu.pitt.infsci2560.samples.beans.weather.sax.Current parseXml(String xml) {
-        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
-        try {
-            SAXParser saxParser = saxParserFactory.newSAXParser();
-            WeatherHandler handler = new WeatherHandler();
-            saxParser.parse(new InputSource(new StringReader(xml)), handler);
-            
-            List<edu.pitt.infsci2560.samples.beans.weather.sax.Current> curList = handler.getCurList();
-            return curList.get(0);
-            
-        } catch (ParserConfigurationException | SAXException | IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     /**
      * Returns a short description of the servlet.
      *

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.pitt.infsci2560.samples.beans.weather.jaxb;
+package edu.pitt.infsci2560.samples.beans.weather.models;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -68,7 +68,7 @@ public class Current {
     /**
      * @param city the city to set
      */
-    @XmlElement
+    
     public void setCity(City city) {
         this.city = city;
     }
@@ -83,7 +83,7 @@ public class Current {
     /**
      * @param temperature the temperature to set
      */
-    @XmlElement
+    
     public void setTemperature(Temperature temperature) {
         this.temperature = temperature;
     }
@@ -98,7 +98,7 @@ public class Current {
     /**
      * @param humidity the humidity to set
      */
-    @XmlElement
+    
     public void setHumidity(Humidity humidity) {
         this.humidity = humidity;
     }
@@ -113,7 +113,7 @@ public class Current {
     /**
      * @param pressure the pressure to set
      */
-    @XmlElement
+    
     public void setPressure(Pressure pressure) {
         this.pressure = pressure;
     }
@@ -128,7 +128,7 @@ public class Current {
     /**
      * @param wind the wind to set
      */
-    @XmlElement
+    
     public void setWind(Wind wind) {
         this.wind = wind;
     }
@@ -143,7 +143,7 @@ public class Current {
     /**
      * @param clouds the clouds to set
      */
-    @XmlElement
+    
     public void setClouds(Clouds clouds) {
         this.clouds = clouds;
     }
@@ -158,7 +158,7 @@ public class Current {
     /**
      * @param visibility the visibility to set
      */
-    @XmlElement
+    
     public void setVisibility(Visibility visibility) {
         this.visibility = visibility;
     }
@@ -173,7 +173,7 @@ public class Current {
     /**
      * @param precipitation the precipitation to set
      */
-    @XmlElement
+    
     public void setPrecipitation(Precipitation precipitation) {
         this.precipitation = precipitation;
     }
@@ -188,7 +188,7 @@ public class Current {
     /**
      * @param weather the weather to set
      */
-    @XmlElement
+    
     public void setWeather(Weather weather) {
         this.weather = weather;
     }
@@ -203,7 +203,7 @@ public class Current {
     /**
      * @param lastupdate the lastupdate to set
      */
-    @XmlElement
+    
     public void setLastupdate(LastUpdate lastupdate) {
         this.lastupdate = lastupdate;
     }

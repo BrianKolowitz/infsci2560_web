@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.pitt.infsci2560.samples.beans.weather.jaxb;
+package edu.pitt.infsci2560.samples.beans.weather.models;
 
 import javax.xml.bind.annotation.XmlAttribute;
 
@@ -11,14 +11,30 @@ import javax.xml.bind.annotation.XmlAttribute;
  *
  * @author kolowitzbj
  */
- public class Humidity {
+public class Weather {
 
+        private String number;
         private String value;
-        private String unit;
+        private String icon;
         
-        public Humidity() {
+        public Weather() {
             
         }
+
+    /**
+     * @return the number
+     */
+    public String getNumber() {
+        return number;
+    }
+
+    /**
+     * @param number the number to set
+     */
+    @XmlAttribute
+    public void setNumber(String number) {
+        this.number = number;
+    }
 
     /**
      * @return the value
@@ -36,17 +52,17 @@ import javax.xml.bind.annotation.XmlAttribute;
     }
 
     /**
-     * @return the unit
+     * @return the icon
      */
-    public String getUnit() {
-        return unit;
+    public String getIcon() {
+        return icon;
     }
 
     /**
-     * @param unit the unit to set
+     * @param icon the icon to set
      */
     @XmlAttribute
-    public void setUnit(String unit) {
-        this.unit = unit;
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
     }
