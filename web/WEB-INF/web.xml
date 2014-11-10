@@ -76,6 +76,10 @@
         <servlet-name>WeatherServlet</servlet-name>
         <servlet-class>edu.pitt.infsci2560.samples.servlets.weather.WeatherServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DojoLogin</servlet-name>
+        <servlet-class>edu.pitt.infsci2560.servlets.dojo.DojoLogin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HelloServlet</servlet-name>
         <url-pattern>/Hello</url-pattern>
@@ -144,9 +148,13 @@
         <servlet-name>WeatherServlet</servlet-name>
         <url-pattern>/Weather</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DojoLogin</servlet-name>
+        <url-pattern>/samples/dojo/resources/services/login</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
-    </session-config>    
+    </session-config>
 </web-app>
